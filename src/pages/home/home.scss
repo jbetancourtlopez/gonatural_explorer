@@ -1,0 +1,49 @@
+page-home {
+    p.description{
+        text-align: center;
+        margin-top: 15%;
+        margin-bottom: 5%;
+    }
+}
+
+
+ion-avatar {
+    img{
+        border-radius: 0% !important;
+        overflow: hidden;
+        width: 45px !important;
+        height: 28px;
+        display: inline-block !important;
+        vertical-align: top;
+    }
+    h5{
+        display: inline-block !important;
+        margin: 0px;
+        vertical-align: top;
+    }
+}
+
+ion-item.person{
+    padding: 0px !important; 
+}
+
+ion-card{
+    .home-item{
+        font-size: 14px;
+    }
+
+    ion-row{
+        ion-button {
+            color:#FFF !important;
+            font-size: 16px !important;
+            padding: 8px !important;
+            font-weight: bold !important;
+            padding-top: 15px !important;
+        }
+
+        ion-col.hour{
+            font-size: 16px;
+        }
+    }
+    
+}

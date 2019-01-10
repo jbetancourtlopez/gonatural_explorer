@@ -1,0 +1,84 @@
+<ion-header  >
+    <ion-navbar color="secondary" >
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Abordar sin cupón</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-row>
+      <ion-col col-12>
+        Huesped:  {{cupon.Huesped}}
+      </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label >Cupon Actual:</ion-label>
+          <ion-input [(ngModel)]="cupon.numCupon" readonly type="text" ></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-6>
+        <ion-item>
+          <ion-label >Autoriza:</ion-label>
+          <ion-input [(ngModel)]="cupon.sinCuponAutoriza" type="text" placeholder="Nombre de la persona que autoriza" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+
+    
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label >Observaciones:</ion-label>
+          <ion-input  [(ngModel)]="cupon.Observaciones" type="text" placeholder="Ingrese las observaciones" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  
+    <br>
+    <br>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <div text-center> 
+            Adulto ({{cupon.numAdultos}})
+            <ion-range min="1" max="10" pin="true" [(ngModel)]="cupon.numAdultos" color="secondary">
+              <ion-icon (click)="cupon.numAdultos = (cupon.numAdultos - 1)" range-left name="remove"></ion-icon>
+              <ion-icon (click)="cupon.numAdultos = (+cupon.numAdultos + 1)" range-right name="add"></ion-icon>
+            </ion-range>
+          </div>
+        </ion-col>
+
+        <ion-col col-4 >
+            <div text-center > 
+              Niño ({{cupon.numNinos}})
+              <ion-range min="0" max="10" pin="true" [(ngModel)]="cupon.numNinos" color="secondary">
+                <ion-icon (click)="cupon.numNinos = (cupon.numNinos - 1)" range-left name="remove"></ion-icon>
+                <ion-icon (click)="cupon.numNinos = (+cupon.numNinos + 1)" range-right name="add"></ion-icon>
+              </ion-range>
+            </div>
+          </ion-col>
+
+        <ion-col col-4 >
+          <div text-center >
+            Infante ({{cupon.numInfantes}})
+            <ion-range min="0" max="10" pin="true" [(ngModel)]="cupon.numInfantes" color="secondary">
+              <ion-icon (click)="cupon.numInfantes = (cupon.numInfantes - 1)" range-left name="remove"></ion-icon>
+              <ion-icon (click)="cupon.numInfantes = (+cupon.numInfantes + 1)" range-right name="add"></ion-icon>
+            </ion-range>
+          </div>
+        </ion-col>
+      </ion-row>
+      <br>
+      <br>
+    </ion-grid>
+    <button (click) = "on_click_board_sin_cupon()"  ion-button block>Abordar</button>
+  </ion-content>
+  

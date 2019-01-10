@@ -1,0 +1,82 @@
+<ion-header  >
+  <ion-navbar color="secondary" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sincronizar</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <!-- 
+        <ion-row>
+          <ion-col col-12 center text-center>
+            <h5>Obtener Orden Servicio</h5>
+            <ion-label color="primary">Introduzca del Folio</ion-label>
+            <ion-input type="number" [(ngModel)]="idOpVehi" ></ion-input>
+            <p>El siguiente botón sincroniza la base de datos online con la base de datos local.</p>
+            <button (click)="get_cupones()" ion-button small full color="primary" icon-start >
+                <ion-icon name="sync"></ion-icon>
+                Obtener Orden Servicio
+            </button>
+          </ion-col>
+        </ion-row>
+        <br>
+        <hr> 
+        -->
+        <ion-row>
+          <ion-col col-12 center text-center>
+            <h5>Enviar Actualizaciones de Cupones</h5>
+            <small>Cantidad de Cupones no sincronizadas: {{count_cupon}}</small>
+            <p>El siguiente botón sincroniza la base de datos local con la base de datos online.</p>
+            <button (click)="send_cupones()" ion-button small full color="primary" icon-start >
+                <ion-icon name="sync"></ion-icon>
+                Enviar Cambios Cupones
+            </button>
+          </ion-col>
+        </ion-row>
+        <br>
+        <hr>
+        <ion-row>
+            <ion-col col-12 center text-center>
+              <h5>Enviar Respuesta de Encuestas</h5>
+              <small>Cantidad de Respuestas no sincronizadas: {{count_reply}}</small>
+              <p>El siguiente botón sincroniza los resultados obtenidos en las encuestas con la base de datos online.</p>
+              <button (click)="sync_answer()" ion-button small full color="primary" icon-start >
+                  <ion-icon name="sync"></ion-icon>
+                  Enviar Respuestas de Encuesta
+              </button>
+            </ion-col>
+        </ion-row>
+        <br>
+        <hr>
+        <ion-row>
+          <ion-col col-12 center text-center>
+            <h5>Obtener Encuesta Nuevas</h5>
+            <p>El siguiente botón sincroniza las encuentas nuevas con la base de datos en online.</p>
+            <button (click)="sync_quiz()" ion-button small full color="primary" icon-start >
+                <ion-icon name="sync"></ion-icon>
+                Obtener Encuesta Nuevas
+            </button>            
+          </ion-col>
+        </ion-row>
+        <!-- Eliminar Cupones -->
+        <br>
+        <hr>
+        <ion-row>
+          <ion-col col-12 center text-center>
+            <h5>Borrar Cupones</h5>
+            <button (click)="on_click_delete()" ion-button small full color="primary" icon-start >
+                <ion-icon name="sync"></ion-icon>
+                Borrar Cupones
+            </button>            
+          </ion-col>
+        </ion-row>
+        
+
+
+        
+      </ion-grid>
+</ion-content>

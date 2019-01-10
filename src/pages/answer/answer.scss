@@ -1,0 +1,40 @@
+page-answer {
+    .header .toolbar-background{
+        background: none;
+    }
+    
+    ion-navbar.toolbar{ 
+        background-color: #f8f8f8;
+    }
+    
+    img.slide-image{
+        width: 70px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    ion-slide{
+        p {
+            font-size: 14px;
+        }
+    }
+
+    p{
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    ion-textarea{
+       border: 1px #CCC solid;
+       margin: 0 auto;
+    }
+
+    ion-slide {
+        .list_answers{
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+
+   
+}

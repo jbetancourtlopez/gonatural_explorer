@@ -1,0 +1,55 @@
+<ion-header  >
+  <ion-navbar color="secondary" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Idioma</ion-title>z
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1>{{poll.name_full}}</h1>
+  <br>
+  <h4>Seleccione el Idioma</h4>
+  <ion-list radio-group [(ngModel)]="poll.language_id" >
+    
+    <ion-item>
+      <ion-label>
+          <img style="height: 20px;" class="img-responsive" src="assets/imgs/language/esp.png"> 
+          &nbsp;Español
+        </ion-label>
+      <ion-radio  (ionSelect) ="on_click_language(1)" value="1"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>
+          <img style="height: 20px;" class="img-responsive" src="assets/imgs/language/usa.png"> 
+          &nbsp; Ingles
+        </ion-label>
+        <ion-radio (ionSelect) ="on_click_language(2)" value="2"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>
+            <img style="height: 20px;" class="img-responsive" src="assets/imgs/language/fr.png">
+            &nbsp;Frances
+          </ion-label>
+        <ion-radio (ionSelect) ="on_click_language(3)" value="3"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>
+            <img style="height: 20px;" class="img-responsive" src="assets/imgs/language/alem.png"> 
+            &nbsp;Aleman
+        </ion-label>
+        <ion-radio (ionSelect) ="on_click_language(4)" value="4"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+  <br>
+  <br>
+  <button small block ion-button (click)="on_click_start()" >Iniciar Encuesta</button>
+
+
+</ion-content>

@@ -1,0 +1,126 @@
+
+<ion-header >
+    <ion-navbar  [style.backgroundColor]="poll.color" >
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title> Encuesta </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+  <ion-content (click)="on_click_content()" >
+      <ion-slides pager effect="slide" (ionSlideDidChange)="slideChanged()">
+
+          <!-- Datos Personales -->
+          <ion-slide  >
+            <img src="assets/imgs/logo_color.png" class="slide-image"/>
+            <p>Go Natural es una Empresa responsable que siempre busca mejorar su servicio.</p>
+            <ion-list>
+              <ion-item>
+                <ion-label floating>Nombre</ion-label>
+                <ion-input disabled [(ngModel)]="poll.name_full" type="text"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label floating>Teléfono</ion-label>
+                  <ion-input [(ngModel)]="poll.phone" type="number" ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Correo Electrónico</ion-label>
+                <ion-input [(ngModel)]="poll.email" type="email" ></ion-input>
+              </ion-item>
+            </ion-list>
+
+            <button (click)="on_click_next()" ion-button icon-end color="primary">
+              Siguiente
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+
+
+          </ion-slide>
+
+          <!-- Preguntas Dinamicas -->
+          <ion-slide *ngFor="let item of list_quiz.questions; let i = index">
+            <h3>{{list_quiz.name}}</h3>
+            <h5 class="slide-title" [innerHTML]="item.question"></h5>
+            <div class="list_answers" [ngSwitch]="item.type" >
+
+              <div *ngSwitchCase="1" >
+                  <ion-list radio-group [(ngModel)]="poll.reply[i]['answer_name']" >
+                      <ion-item *ngFor="let item_answer of item.answers">
+                        <ion-label>{{item_answer.answer}}</ion-label>
+                        <ion-radio value="{{item_answer.answer}}" ></ion-radio>
+                      </ion-item>
+                  </ion-list>
+              </div>
+
+              <div *ngSwitchCase="3" >
+                  <ion-list radio-group [(ngModel)]="poll.reply[i]['answer_name']" >
+                      <ion-item>
+                        <ion-label>Excelente</ion-label>
+                        <ion-radio  value="1"></ion-radio>
+                      </ion-item>
+
+                      <ion-item>
+                        <ion-label>Muy Bien</ion-label>
+                        <ion-radio value="2"></ion-radio>
+                      </ion-item>
+
+                      <ion-item>
+                        <ion-label>Bien</ion-label>
+                        <ion-radio value="3"></ion-radio>
+                      </ion-item>
+
+                      <ion-item>
+                        <ion-label>Regular</ion-label>
+                        <ion-radio value="4"></ion-radio>
+                      </ion-item>
+
+                      <ion-item>
+                        <ion-label>No sastifactorio</ion-label>
+                        <ion-radio value="5"></ion-radio>
+                      </ion-item>
+                  </ion-list>
+                  
+              </div>
+
+              <div *ngSwitchCase="4" >
+                  <ion-textarea rows="5" [(ngModel)]="poll.reply[i].answer_name" placeholder="Escriba aquí"></ion-textarea>
+              </div>
+
+              <br>
+
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6>
+                    <button (click)="on_click_back()" ion-button clear icon-end color="primary">
+                      <ion-icon name="arrow-back"></ion-icon>
+                      &nbsp;Atras
+                    </button>
+                  </ion-col>
+
+                  <ion-col col-6>
+                    <button (click)="on_click_next()" ion-button icon-end color="primary">
+                      Siguiente
+                      <ion-icon name="arrow-forward"></ion-icon>
+                    </button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-slide>
+
+          <!-- Finalizar -->
+          <ion-slide>
+
+            <img src="assets/imgs/logo_color.png" class="slide-image"/>
+            <h2 class="slide-title">¿Usted ha terminado?</h2>
+            <button (click)="on_click_thank()" ion-button large clear icon-end color="primary">
+              Finalizar
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          </ion-slide>
+        </ion-slides>
+  </ion-content>

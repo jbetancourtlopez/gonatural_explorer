@@ -1,0 +1,60 @@
+<ion-header  >
+  <ion-navbar color="secondary" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Información de Transportadora</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+      <img src="assets/imgs/logo_color.png" class="slide-image"/>
+      <br>
+      <br>
+      <br>
+    <ion-row>
+      <ion-col col-3 style="font-weight: bold; ">
+        Razón social:
+      </ion-col>
+      <ion-col col-9 style="text-align: left;" >            
+        {{data.razon}}
+      </ion-col>
+      <hr>
+      <ion-col col-3 style="font-weight: bold;">
+        Dirección:
+      </ion-col>
+      <ion-col col-9 style="text-align: left;" >
+          {{data.dir}}
+      </ion-col>
+
+      <ion-col col-3 style="font-weight: bold;">
+        RFC:
+      </ion-col>
+      <ion-col col-9 style="text-align: left;" >
+          {{data.rfc}}
+      </ion-col>
+
+      <ion-col col-3 style="font-weight: bold;">
+        Camioneta:
+      </ion-col>
+      <ion-col col-9 style="text-align: left;" >
+          {{data.Vehiculo}}
+      </ion-col>
+
+      <ion-col col-3 style="font-weight: bold;">
+        Licencia:
+      </ion-col>
+      <ion-col col-9 style="text-align: left;" >
+          {{data.licencia}}
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col col-12 style="font-weight: bold;">
+          <h5>EMPRESA QUE PRESTA SERVICIO A <span id="mark" >GO NATURAL EXPLORERS</span>.</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

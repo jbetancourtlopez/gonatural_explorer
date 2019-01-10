@@ -1,0 +1,28 @@
+
+<ion-header  >
+  <ion-navbar color="secondary" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ajustes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+          <ion-label>Encuesta</ion-label>
+          <ion-select  [(ngModel)]="poll_name" >
+            <ion-option *ngFor= "let item of list_poll" [selected]="select_poll_id == item.online_poll_id" (ionSelect) ="on_click_poll(item.online_poll_id, item.name)" value="{{item.online_poll_id}}">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- 
+        <ion-item>
+            <ion-label stacked>Tiempo de Sincronización (Minutos)</ion-label>
+            <ion-input type="number"></ion-input>
+        </ion-item> 
+        -->
+
+      </ion-list>
+</ion-content>

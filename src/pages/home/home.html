@@ -1,0 +1,106 @@
+<ion-header  >
+  <ion-navbar color="secondary" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pasajeros</ion-title>
+    <ion-buttons end>
+      <button (click)="on_click_update()" ion-button icon-only color="royal">
+        <ion-icon name="ios-refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ 
+    <div  *ngIf="list_customer.length >= 1">
+        <ion-card (press)="pressEvent(item)"   
+                [ngStyle]="{'box-shadow': '5px 1px 2px ' + this.global.get_status(item.status).color}"
+                *ngFor="let item of list_customer" >    
+          <ion-grid>
+          <ion-row class="home-item">
+              <ion-col col-9>
+              
+                  <ion-avatar item-start>
+                     
+                    <img class="img-responsive" src="assets/imgs/flat/{{this.global.get_flat(item.ididioma)}}">
+                    <h5>
+                      {{item.Huesped}} -
+                      <strong>
+                        <ng-template [ngIf]="item.numCupon != 'null'" > ({{item.numCupon}})</ng-template>
+                        <ng-template [ngIf]="item.nuevoNumCupon != '0'" > - Nue ({{item.nuevoNumCupon}})</ng-template>
+                      </strong>
+                    </h5>
+
+                    <ng-template [ngIf]="item.status != 14" > <h5>[{{this.global.get_status(item.status).name}}]</h5> </ng-template>
+                    <ng-template [ngIf]="item.status == 14" > <h2 style="color:blue;" >[{{this.global.get_status(item.status).name}}]</h2> </ng-template>
+                    
+
+
+                  </ion-avatar>
+                  
+                  <ion-row>
+                    <ion-col col-6>
+                        <div><strong>Hotel:</strong> <h3>{{item.Hotel}}</h3></div>
+                        <div><strong>Hab ID:</strong> {{item.Habitacion}}</div>
+                    </ion-col>
+            
+                    <ion-col col-6>
+                        <div><strong>Pick Up:</strong> {{item.PickUpLobby}}</div>
+                        <div><strong>Agencia:</strong>{{item.nombreAgencia}}</div>
+                        <div><strong>Rep.:</strong> {{item.nombreRepresentante}}</div>
+                    </ion-col>
+
+                    <ion-col col-12>
+                        <div>
+                            <strong>Adulto:</strong> {{item.numAdultos}} - 
+                            <strong>Niños:</strong> {{item.numNinos}} -
+                            <strong>Infante:</strong> {{item.numInfantes}} -
+                            <strong>Incentivos:</strong> {{item.Incentivos}} 
+                          </div>
+                    </ion-col>
+      
+                    <ion-col col-6 center text-left>
+                      <h5>Observaciones:</h5>
+                      {{item.Observaciones}}
+                    </ion-col>
+
+                    <ion-col col-6 center text-left>
+                      <h5>Motivo:</h5>
+                      {{item.Motivo}}
+                    </ion-col>
+      
+                  </ion-row>
+                </ion-col>
+      
+                <ion-col col-3 center text-center >
+                      <div>
+                        <strong>{{item.pickUpIn}}</strong> 
+                        <br>
+                        <button style="padding: 7px; font-size: 16px; font-weight:bold; " (click) = "on_click_entry(item)" ion-button full color="success" >ENTRADA</button>
+                        <strong>{{item.pickUpOut}} </strong>
+                        <br>
+                        <button style="padding: 7px; font-size: 16px; font-weight:bold; "  (click) = "on_click_exit(item)" ion-button full color="danger" >SALIDA</button>
+                      </div>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+        </ion-card>
+      </div>
+  
+   
+    <div *ngIf="list_customer.length == 0">
+      <br>
+      
+      <p class="description" >En este momento no cuenta con ninguna orden de servicio cargada ala base de datos.
+        <br> Recomendamos que sincronize su base de datos Local con su base en Linea.
+      </p>
+      
+      <!-- <button (click)="on_clik_sync()" ion-button small block color="primary" icon-start >
+          <ion-icon name="sync"></ion-icon>
+          Ir a Sincronizar
+      </button> -->
+    </div>
+
+</ion-content>

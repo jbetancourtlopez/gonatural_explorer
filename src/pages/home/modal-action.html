@@ -1,0 +1,61 @@
+
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>
+      Configuraciones en Pasajeros
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="on_click_closed()">
+        <span ion-text color="primary" >Cerrar</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <br>
+        <button (click)="on_click_board()" ion-button block icon-start outline>
+            <ion-icon name="checkmark-circle"></ion-icon> Abordar
+        </button>
+        <br>
+        <button (click)="on_click_noshow()" ion-button block icon-start outline>
+            <ion-icon name="eye-off"></ion-icon> Marcar "No Show"
+        </button>
+        <br>
+        <button (click)="on_click_changecupon()" ion-button block icon-start outline>
+            <ion-icon name="git-merge"></ion-icon> Cambiar Número Cupón
+        </button>
+        <br>
+        <button (click)="on_click_changeperson()" ion-button block icon-start outline>
+            <ion-icon name="swap"></ion-icon> Cambiar Número de Pasajeros
+        </button>
+        <br>
+        <button (click)="on_click_boardsincupon()" ion-button block icon-start outline>
+            <ion-icon name="pricetag"></ion-icon> Abordar sin cupón
+        </button>
+        <br>
+        
+
+        <ng-template [ngIf]="cupon.status == '14' || cupon.status == '12'" > 
+            <button (click)="on_click_sheet()" ion-button block icon-start outline>
+                <ion-icon name="hand"></ion-icon> Firma de Resposivas
+            </button>
+        </ng-template>
+
+        <ng-template [ngIf]="cupon.status != '14' && cupon.status != '12'" > 
+            <button  ion-button block icon-start outline>
+                <ion-icon name="hand"></ion-icon> 
+                Pasajero No Abordado
+                <br>
+                <small>Sin Acciones disponible</small>
+            </button>
+        </ng-template>
+
+
+        <br>
+
+        
+        <button (click)="on_click_reset()" ion-button block icon-start outline>
+            <ion-icon name="refresh-circle"></ion-icon> Regresar Estado
+        </button>
+</ion-content>

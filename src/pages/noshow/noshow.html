@@ -1,0 +1,57 @@
+<ion-header  >
+    <ion-navbar color="secondary" >
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>No Show</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+
+    <ion-row>
+      <ion-col col-12>
+       Huesped:  {{cupon.Huesped}}
+      </ion-col>
+    </ion-row>
+    <hr>
+
+      <ion-row>
+          <ion-col col-6> 
+            <ion-item>
+              <ion-label >Número Cupón:</ion-label>
+              <ion-input  disabled [(ngModel)]="cupon.numCupon" type="text" ></ion-input>
+            </ion-item> 
+          </ion-col>
+
+          <ion-col col-6> 
+            <ion-item>
+              <ion-label >Folio:</ion-label>
+              <ion-input [(ngModel)]="cupon.NoFolio" min="0" type="number" placeholder="Ingrese el numero de folio" ></ion-input>
+            </ion-item>
+          </ion-col>
+      </ion-row>
+
+      <br>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label >Entrego:</ion-label>
+            <ion-input [(ngModel)]="cupon.AQuienSeEntrega" type="text" placeholder="Describa a quien entrego" ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label >Motivo:</ion-label>
+            <ion-input [(ngModel)]="cupon.Motivo" type="text" placeholder="Describa el motivo del No Show" ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <br>
+      <br>
+    <button (click) = "on_click_no_show()" ion-button block>No Show</button>
+  </ion-content>
+  

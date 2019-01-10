@@ -1,0 +1,18 @@
+{
+  "name": "gonatural",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "defaultBrowser": "chrome",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://prismasoft.mx/demos/gonatural/api"
+    },
+    {
+      "path": "/ws.asmx",
+      "proxyUrl": "http://ws.gonaturalexplorers.com/ws.asmx"
+    }
+  ]
+}

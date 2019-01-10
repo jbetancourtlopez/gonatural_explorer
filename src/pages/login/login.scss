@@ -1,0 +1,26 @@
+page-login {
+    text-align: center;
+    
+
+    ion-content{
+        background-image: url('../assets/imgs/background.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+    }
+
+    img{
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    
+    p{
+        color:#FFF !important;
+        font-weight: 600;
+        word-spacing: .3em;
+    }
+}
